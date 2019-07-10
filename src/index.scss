@@ -1,0 +1,37 @@
+$mainColor: #f5a623;
+$hoverColor: #f5a623;
+$fontColor: #333333;
+$secondMain: #3077db;
+$white: #fff;
+html,
+body {
+  width: 100%;
+  height: 100%;
+  color: $fontColor;
+}
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif, 'Microsoft YaHei', 'Helvetica Neue';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  height: 100%;
+  /*overflow: hidden;*/
+}
+html,
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+ul,
+li {
+  list-style: none;
+}

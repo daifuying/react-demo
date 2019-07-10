@@ -1,12 +1,12 @@
-import React,{Component,Fragment} from 'react';
+import React,{Component} from 'react';
 import {BrowserRouter as Router , Route} from 'react-router-dom';
 import Simple from '../pages/simple';
-import TestB2 from '../pages/testB2';
+import Login from '../pages/login/login';
 class Routes extends Component{
     render(){
         return (
             <Router>
-                    <Route exact path="/" component={TestB2} />
+                    <Route exact path="/" component={Login} />
                     <Route  path="/simple" component={Simple} />
             </Router>
         );
