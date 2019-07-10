@@ -1,6 +1,7 @@
 import React,{Component,Fragment} from 'react';
 import {BrowserRouter as Router , Route} from 'react-router-dom';
-import {Simple,TestB2} from '../pages';
+import Simple from '../pages/simple';
+import TestB2 from '../pages/testB2';
 class Routes extends Component{
     render(){
         return (
