@@ -1,3 +1,7 @@
+局部css:react在组件中引入[name].module.css文件===vue scoped
+影响当前组件及其所有后代组件:在组件中引入[name].scss文件
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
+import 'zent/css/index.css';//全局引入zent样式
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 

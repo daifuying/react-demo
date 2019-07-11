@@ -71,7 +71,7 @@ const groupedComponents = [
     Object.assign({ limit: 2 }, lineConf)
 ];
 
-class Simple extends Component {
+class Home extends Component {
     state = {
         grouped: true,
         value: [
@@ -167,4 +167,4 @@ class Simple extends Component {
             });
     };
 }
-export default Simple;
+export default Home;
