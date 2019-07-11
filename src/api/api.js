@@ -43,7 +43,6 @@ http.interceptors.request.use(
     return config
   },
   error => {
-      debugger
     console.log(error)
   }
 )
@@ -62,7 +61,6 @@ http.interceptors.response.use(
     return res
   },
   error => {
-      debugger
     if (
       error.response && error.response.status === 404 ||
       error.response && error.response.status === 403 ||
@@ -88,7 +86,6 @@ async function httpProxy (methodType, url, params) {
     data: methodType === 'POST' ? params : null,
     params: methodType === 'GET' ? params : null
   })
-    debugger
    switch (returnData.data.code) {
      case '0':
        return returnData.data

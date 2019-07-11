@@ -50,6 +50,16 @@ class Login extends Component {
 
     componentDidMount(){
         console.log('componentDidMount----组件挂载完成的时刻执行,此处请求接口')
+        this.getPublicKey()
+    }
+    // 获取公钥
+    async getPublicKey(){
+        let res = await HTTP.getPublicKey();
+        if (res && res.code === "0") {
+            this.setState({
+                publicKey:  "-----BEGIN PUBLIC KEY-----" + res.data + "-----END PUBLIC KEY-----"//改造
+            });
+        }
     }
     async login (user, password) {
         let params = {
@@ -67,7 +77,11 @@ class Login extends Component {
         this.setState({
             isLogining: true
         });
-        this.login(user, password)
+
+        let encryptor = new JSEncrypt();
+        encryptor.setPublicKey(this.state.publicKey); //publicKey 是后台给的一个密钥
+        let pwd = encryptor.encrypt(password); //rsaPassWord 就是得出来的加密串
+        this.login(user, pwd)
     }
 
     render() {
