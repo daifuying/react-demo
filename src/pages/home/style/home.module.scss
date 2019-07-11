@@ -6,9 +6,8 @@
 .article{
   width: 100%;
   height: calc(100vh - 50px);
+  display: flex;
   .aside{
-    height: 100%;
-    float: left;
     background: #001529;
     .menu:global(.zent-menu) {
       box-shadow:none;
@@ -25,8 +24,8 @@
     }
   }
   .main{
-    margin-left: 200px;
+    width: 100%;
     background: ghostwhite;
-    height: 100%;
+    overflow: auto;
   }
 }
