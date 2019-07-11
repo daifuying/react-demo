@@ -1,16 +1,10 @@
 import React,{Component } from 'react';
 import login from './style/login.module.scss'
 import { Form, Button, Notify } from 'zent';
+import HTTP from '../../api/http/login.js';
+import { JSEncrypt } from 'jsencrypt';
+
 const { FormInputField, createForm, SubmissionError } = Form;
-
-function onSubmitFail(error) {
-    Notify.error(error);
-}
-
-function onSubmitSuccess(result) {
-    Notify.success(result);
-    this.props.history.push('simple')
-}
 
 class SubmitForm extends React.Component {
     resetForm = () => {
@@ -47,7 +41,8 @@ const WrappedForm = createForm()(SubmitForm);
 
 class Login extends Component {
     state = {
-        isLogining: false
+        isLogining: false,
+        publicKey: '',
     }
     componentWillMount(){
         console.log('componentWillMount----组件将要挂载到页面的时刻，类似vue的created')
@@ -56,13 +51,23 @@ class Login extends Component {
     componentDidMount(){
         console.log('componentDidMount----组件挂载完成的时刻执行,此处请求接口')
     }
+    async login (user, password) {
+        let params = {
+            email: user,
+            pwd: password
+        };
+        let res = await HTTP.login(params);
+        if (res&& res.code == "0") {
+            Notify.success(`登陆成功，管理员： daifuying`);
+            this.props.history.push('home')
+        }
+    }
     // 登陆事件
-    handleSubmit = ({ mobile, password }) => {
+    handleSubmit = ({ user, password }) => {
         this.setState({
             isLogining: true
         });
-        Notify.success(`登陆成功，管理员： daifuying`);
-        this.props.history.push('home')
+        this.login(user, password)
     }
 
     render() {
